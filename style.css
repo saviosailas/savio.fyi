@@ -17,6 +17,18 @@ main {
 }
 
 footer {
+    color: brown;
     text-align: center;
     padding: 1rem;
+}
+
+.skill-list {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.9;
+}
+
+.exp-year {
+    font-weight: normal;
+    color: #555;
 }
