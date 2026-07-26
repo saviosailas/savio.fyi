@@ -1,0 +1,38 @@
+
+
+<pre>
+import Foundation
+
+@propertyWrapper
+struct Masked {
+	private var value: String = ""
+
+	var wrappedValue: String {
+		get { value }
+        set { value = String(newValue.flatMap { _ in "*" } ) }
+	}
+
+
+	init(wrappedValue: String) {
+		self.wrappedValue = wrappedValue
+	}
+}
+
+
+struct UserInfo {
+	@Masked var password: String = ""
+
+	func getPassword() -> String {
+        password
+	}
+
+	mutating func setPassword(_ password: String) {
+		self.password = password
+	}
+}
+
+
+var user = UserInfo()
+user.setPassword("This is password")
+print("Password: \(user.getPassword())")
+</pre>
